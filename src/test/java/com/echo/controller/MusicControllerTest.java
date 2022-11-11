@@ -26,9 +26,8 @@ class MusicControllerTest {
         
         // expected
         mockMvc.perform(post("/musics")
-                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .param("title", "곡 제목입니다")
-                        .param("desc", "곡 설명입니다")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":  \"제목입니다.\", \"description\": \"설명입니다.\"}")
                 )
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World"))
