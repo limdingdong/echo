@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MusicController {
 
-    /**
-     * @RequstParam Map<String, String> params</String,>
-      * @param title
-     * @param desc
-     * @return
-     */
     @PostMapping("/musics")
     public String post(@RequestBody MusicRegisterIn registerIn) {
         log.info("registerIn={}", registerIn.toString());
