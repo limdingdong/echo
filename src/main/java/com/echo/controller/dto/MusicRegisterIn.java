@@ -11,10 +11,10 @@ import javax.validation.constraints.NotBlank;
 @ToString
 public class MusicRegisterIn {
 
-    @NotBlank
+    @NotBlank(message = "곡 제목을 입력해 주세요.")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "곡 설명을 입력해 주세요.")
     private String description;
 
 }

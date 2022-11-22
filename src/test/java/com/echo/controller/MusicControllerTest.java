@@ -43,6 +43,7 @@ class MusicControllerTest {
                         .content("{\"title\":  \"\", \"description\": \"설명입니다.\"}")
                 )
                 .andExpect(status().isOk())
+                .andExpect(content().string("{\"title\":\"곡 제목을 입력해 주세요.\"}"))
                 .andDo(print());
     }
 
