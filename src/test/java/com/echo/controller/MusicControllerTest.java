@@ -42,7 +42,7 @@ class MusicControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"title\":  \"\", \"description\": \"설명입니다.\"}")
                 )
-                .andExpect(status().is4xxClientError())
+                .andExpect(status().isOk())
                 .andDo(print());
     }
 
