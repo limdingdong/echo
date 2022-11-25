@@ -26,6 +26,6 @@ public class ExceptionController {
 
         Map<String, String> response = new HashMap<>();
         response.put(field, message);
-        return response;
+        return response; // ResponseBody 에 의해 응답클래스가 JSON 형태로 리턴
     }
 }
