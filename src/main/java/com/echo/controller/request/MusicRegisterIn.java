@@ -1,4 +1,4 @@
-package com.echo.controller.dto;
+package com.echo.controller.request;
 
 import lombok.Getter;
 import lombok.Setter;
