@@ -35,6 +35,12 @@ public class MusicController {
         return Map.of();
     }
 
+    @PostMapping("/musics/exceptionControl")
+    public Map<String, String> exceptionControl(@RequestBody @Valid MusicRegisterIn registerIn) {
+        log.info("registerIn={}", registerIn.toString());
+        return Map.of();
+    }
+
     @GetMapping("/musics")
     public String get() {
         return "Hello World";

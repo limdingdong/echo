@@ -47,4 +47,17 @@ class MusicControllerTest {
                 .andDo(print());
     }
 
+    @Test
+    @DisplayName("/musics title 값은 필수이다. - Exception Controller 활용")
+    void titleIsMandatoryWithExceptionControl() throws Exception {
+        // expected
+        mockMvc.perform(post("/musics/exceptionControl")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":  \"\", \"description\": \"설명입니다.\"}")
+                )
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("{\"title\":\"곡 제목을 입력해 주세요.\"}"))
+                .andDo(print());
+    }
+
 }
