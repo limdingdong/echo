@@ -9,8 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest
 class MusicControllerTest {
@@ -56,7 +55,8 @@ class MusicControllerTest {
                         .content("{\"title\":  \"\", \"description\": \"설명입니다.\"}")
                 )
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("{\"title\":\"곡 제목을 입력해 주세요.\"}"))
+                .andExpect(jsonPath("$.code").value("400"))
+                .andExpect(jsonPath("$.message").value("잘못된 요청입니다."))
                 .andDo(print());
     }
 
