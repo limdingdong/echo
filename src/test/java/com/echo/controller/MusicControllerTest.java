@@ -57,6 +57,7 @@ class MusicControllerTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.code").value("400"))
                 .andExpect(jsonPath("$.message").value("잘못된 요청입니다."))
+                .andExpect(jsonPath("$.validation.title").value("곡 제목을 입력해 주세요."))
                 .andDo(print());
     }
 
