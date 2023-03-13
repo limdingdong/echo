@@ -1,6 +1,8 @@
 package com.echo.controller;
 
 import com.echo.controller.request.MusicRegisterIn;
+import com.echo.service.MusicService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -16,7 +18,10 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class MusicController {
+
+    private final MusicService musicService;
 
     @PostMapping("/musics")
     public Map<String, String> post(@RequestBody @Valid MusicRegisterIn registerIn, BindingResult result) {
@@ -31,6 +36,8 @@ public class MusicController {
             error.put(invalidFieldName, errorMessage);
             return error;
         }
+
+        musicService.registerMusic(registerIn);
 
         return Map.of();
     }
